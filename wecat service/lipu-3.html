@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-质保到期通知</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css"/>
+    <script src="js/jquery-1.8.min.js"></script>
+    <script src="js/jquery-weui.min.js"></script>
+</head>
+<body id="maintenance-service">
+        <header>
+            <p>
+                <span>业务结果回执</span>
+            </p>
+        </header>
+        <form>
+            <div class="maint-box">
+                <p>
+                    <span>车主姓名：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>车牌号：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>车架号：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>联系电话：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>业务类型：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>跟进结果：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>到期时间：</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>当前里程：</span>
+                    <input name=""  type="text" placeholder="请输入当前仪表盘里程">
+                </p>
+                <p>
+                    <span>质保里程：</span>
+                    <input name="" class="juge_input" type="text" placeholder="请输入车辆质保里程">
+                    <span style="color:red;width:auto;">*</span>
+                </p>
+                <p>
+                    <span>质保到期日期：</span>
+                    <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="last-maintenance"  placeholder="请选择质保到期日期">
+                    <span style="color:red;width:auto;">*</span>
+                </p>
+            </div>
+        </form>
+        <a href="javascript:;" class="css-btn save_btn">完成</a>
+
+</body>
+<script type="text/javascript">
+    $("#last-maintenance").datetimePicker(); //日期初始化
+    $("#next-maintenance").datetimePicker(); //日期初始化
+
+
+    //设置页面判空
+    var juge=true;
+    function jugeField(name){
+        if($(name).val()==''||$(name).val()=='-1'){
+            $(name).css('border-color','red');
+            juge=false;
+        }else{
+            $(name).css('border-color','#bbb');
+        }
+    }
+    //保存表单
+    $('.save_btn').click(function(){
+        var formData = new FormData($('form')[0]);
+        $('.juge_input').each(function(index,val){//判空
+            jugeField(val);
+        })
+        if(juge){
+            $.ajax({
+                url: "",
+                type: 'post',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    if(data.status=='success') {
+                        window.location.reload();
+                    } else {
+                        $.alert(data.message);
+                    }
+                }
+
+            });
+        }else{
+            $.alert("请检查信息的完整性");
+        }
+    })
+</script>
+</html>

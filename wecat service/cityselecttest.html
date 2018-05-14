@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.8.min.js"></script>
+		<script src="js/city2.min.js"></script>
+		<script src="js/citySelect2.min.js"></script>
+	</head>
+	<body>
+		<select name="" id="prov" data-code="340000">
+			<option value=""></option>
+		</select>
+		<select name="" id="city" data-code="340600"> 
+			<option value=""></option>
+		</select>
+		<select name="" id="area" data-code="340604">
+			<option value=""></option>
+		</select>
+	</body>
+	<script type="text/javascript">
+		var selectVal = new CitySelect({
+		    data   : data,
+		    provId : "#prov",
+		    cityId : '#city',
+		    areaId : '#area',
+		    isSelect:true
+		});
+	</script>
+</html>

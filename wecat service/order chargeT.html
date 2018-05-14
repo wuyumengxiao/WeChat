@@ -1,0 +1,54 @@
+<!--
+ * @Author: lee.lijie 
+ * @Last Modified by:   lee.lijie 
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>订单核销失败</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.8.min.js"></script>
+    <script src="js/jquery-weui.min.js"></script>
+</head>
+
+<body id="customer-search">
+    <header>
+        <p>
+        	<img src="img/yudao-logo.jpg" />
+        	<span>订单校验</span>
+        </p>
+    </header>
+   	<section>
+   		<p>请向客户索取订单校验码后填入进行校验</p>
+   		<div>
+   			<span>校验码</span>
+   			<input type="" name="" class="code" id="" value="" placeholder="请输入校验码"/>
+   		</div>
+   	</section>
+   	<a href="javascript:;" class="css-btn" style="margin-top: 15px;">校验</a>
+</body>
+<script type="text/javascript">
+	$('.search_btn').click(function() {
+		var code = $('.code').val();
+		if(code!='') {
+			$.post('', {
+				code:code,
+			}, function(data) {
+				if(data.status == 'success') {
+					$.alert(data.message);
+//					window.location.href = "";
+				} else {
+					$.alert(data.message);
+				}
+			})
+		} else {
+			$.alert('校验码不能为空！','');
+		}
+	})
+</script>
+</html>

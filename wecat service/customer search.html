@@ -1,0 +1,59 @@
+<!--
+ * @Author: lee.lijie 
+ * @Last Modified by:   lee.lijie 
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>客户搜索</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.8.min.js"></script>
+    <script src="js/jquery-weui.min.js"></script>
+</head>
+
+<body id="customer-search">
+    <header>
+        <p>
+        	<img src="img/yudao-logo.jpg" />
+        	<span>客户搜索</span>
+        </p>
+    </header>
+   	<section>
+   		<p>请输入手机号或者姓名进行搜索</p>
+   		<div>
+   			<span>手机号</span>
+   			<input type="" name="" id="" class="phone" value="" placeholder="请输入手机号"/>
+   		</div>
+   		<div>
+   			<span>姓名</span>
+   			<input type="" name="" id="" class="realName" value="" placeholder="请输入姓名"/>
+   		</div>
+   	</section>
+   	<a href="javascript:;" class="css-btn search_btn">搜索</a>
+</body>
+<script type="text/javascript">
+	$('.search_btn').click(function() {
+		var phone = $('.phone').val();
+		var realName = $('.realName').val();
+		if(/^1[34578]\d{9}$/.test(phone)||realName!='') {
+			$.post('', {
+				phone: phone,
+				realname: realName
+			}, function(data) {
+				if(data.status == 'success') {
+					window.location.href = "";
+				} else {
+					$.alert(data.message);
+				}
+			})
+		} else {
+			$.alert('请核对输入信息的正确性！','');
+		}
+	})
+</script>
+</html>

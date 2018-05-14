@@ -1,0 +1,68 @@
+<!--
+ * @Author: lee.lijie 
+ * @Last Modified by:   lee.lijie 
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>积分充值</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.8.min.js"></script>
+</head>
+
+<body id="buy-points">
+    <header>
+        <img src="img/yudao-logo.jpg" />
+        <span>企业积分</span>
+    </header>
+    <section class="buy-select">
+        <p>
+        	<span>企业门店：</span>
+        	<span>广汽丰田浦东路店</span>
+        </p>
+        <p style="margin: 10px 0 15px 0;">积分充值：</p>
+        <div class="weui-flex">
+			<div class="weui-flex__item count_money select-active">
+			  	<span>500</span><em>元</em>
+			</div>
+			<div class="weui-flex__item count_money">
+			  	<span>1000</span><em>元</em>
+			</div>
+			<div class="weui-flex__item count_money" style="margin-right: 0;">
+			  	<span>2000</span><em>元</em>
+			</div>
+		</div>
+    </section>
+    <section class="bill-info">
+    	<span>* 请仔细核对发票信息</span>
+    	<p style="font-weight: bold;">发票信息：</p>
+    	<p>
+    		<span>发票抬头：</span>
+    		<input type="" name="" id="" value="" />
+    		<img src="img/logo-input-write.jpg"/>
+    	</p>
+    	<p>
+    		<span>项目：</span>
+    		<span>服务费</span>
+    	</p>
+    	<p>
+    		<span>发票金额：</span>
+    		<em class="bill_sum">500</em><span>元</span>
+    	</p>
+    	<span style="margin: 8px 0 10px 0;">发票一旦开具不可以退还，修改。请仔细核对发票信息。</span>
+    </section>
+    <a href="" class="css-btn">微信支付</a>
+    <a href="" class="css-btn">支付宝支付</a>
+</body>
+<script type="text/javascript">
+	$('.count_money').click(function(){
+		$(this).siblings().removeClass('select-active');
+		$(this).addClass('select-active');
+		$('.bill_sum').text($(this).find('span').text());
+	})
+</script>
+</html>

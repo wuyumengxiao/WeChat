@@ -1,0 +1,54 @@
+<!--
+ * @Author: lee.lijie 
+ * @Last Modified by:   lee.lijie 
+ -->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>活动搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/jquery-weui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/jquery-1.8.min.js"></script>
+		<script src="js/jquery-weui.min.js"></script>
+	</head>
+
+	<body id="customer-search">
+		<header>
+			<p>
+				<img src="img/yudao-logo.jpg" />
+				<span>活动搜索</span>
+			</p>
+		</header>
+		<section>
+			<p>请输入活动名称部分关键字进行搜索</p>
+			<div>
+				<span>关键字</span>
+				<input type="" name="" id="" class="keyword" value="" placeholder="请输入活动名称关键字" />
+			</div>
+		</section>
+		<a href="javascript:;" class="css-btn search_btn">搜索</a>
+	</body>
+	<script>
+		$('.search_btn').click(function() {
+			var keyword = $('.keyword').val();
+			if(keyword == '') {
+				$.alert('关键字不能为空','');
+			} else {
+				$.post('', {
+					title: keyword
+				}, function(data) {
+					if(data.status == 'success') {
+						window.location.href = "";
+					} else {
+						$.alert(data.message);
+					}
+				})
+			}
+		})
+	</script>
+
+</html>

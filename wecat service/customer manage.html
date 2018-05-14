@@ -1,0 +1,113 @@
+<!--
+ * @Author: lee.lijie 
+ * @Last Modified by:   lee.lijie 
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>客户管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.8.min.js"></script>
+</head>
+
+<body id="customer-mana">
+    <header>
+        <p>
+        	<img src="img/yudao-logo.jpg" />
+        	<span>客户管理</span>
+        </p>
+        <div>
+        	<a href=""><img src="img/logo-serch.jpg" class="go-serch"/></a>
+        	<img src="img/logo-setting.jpg" class="go-setting"/>
+        </div>
+    </header>
+   	<section>
+   		<table>
+   			<tr>
+   				<th>姓名</th>
+   				<th class="sp-title">车型</th>
+   			</tr>
+   			<tr>
+   				<td><a href="">陈新伟</a></td>
+   				<td  class="sp-text">35 TFSI  风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">陈新伟</a></td>
+   				<td  class="sp-text">35 TFSI  风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">陈新伟</a></td>
+   				<td  class="sp-text">35 TFSI  风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">陈新伟</a></td>
+   				<td  class="sp-text">阿尔法·罗密欧.ALFA 2uettottanta</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">陈新伟</a></td>
+   				<td  class="sp-text">35 TFSI  风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮十点多</a></td>
+   				<td  class="sp-text">阿尔法·罗密欧.ALFA 2uettottanta</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   			<tr>
+   				<td><a href="">王亮</a></td>
+   				<td  class="sp-text">2016款 1.4T 风尚版</td>
+   			</tr>
+   		</table>
+   		<div class="filter">
+   			<p>
+   				<a href="">即将保养</a>
+   			</p>
+   			<p>
+   				<a href="">沉默客户</a>
+   			</p>
+   			<p>
+   				<a href="">新的客户</a>
+   			</p>
+   		</div>
+   	</section>
+   	<a href="" class="css-btn">下一页</a>
+</body>
+<script type="text/javascript">
+	var isShow = true;//筛选模块是否要显示
+	$('.go-setting').click(function(){
+		if(isShow){
+			$('.filter').css('display','block');
+			isShow = false;
+		}else{
+			$('.filter').css('display','none');
+			isShow = true;
+		}
+	})
+</script>
+</html>
