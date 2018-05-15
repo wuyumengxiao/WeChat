@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>1-机油保养</title>
+    <title>1-定期保养</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -58,12 +58,12 @@
                 </p>
                 <p>
                     <span>上次保养日期：</span>
-                    <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="last-maintenance"  placeholder="请选择日期">
+                    <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="last-maintenance"  placeholder="请选择日期" >
                     <span style="color:red;width:auto;">*</span>
                 </p>
                 <p>
                     <span>下次保养日期：</span>
-                    <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="next-maintenance"  placeholder="请选择日期">
+                    <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="next-maintenance" onfocus="this.blur();"  placeholder="请选择日期">
                     <span style="color:red;width:auto;">*</span>
                 </p>
             </div>
@@ -72,8 +72,61 @@
 
 </body>
 <script type="text/javascript">
-    $("#last-maintenance").datetimePicker(); //日期初始化
-    $("#next-maintenance").datetimePicker(); //日期初始化
+
+    Date.prototype.Format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S":  this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    $('#last-maintenance').datetimePicker({
+        yearSplit:'年',
+        monthSplit:'月',
+        start: new Date(),
+        value:new Date().Format('yyyy年MM月dd')+' 日',
+        times:function(){
+            return [
+                {
+                    values:['日']
+                }
+            ]
+        }
+    });
+
+    $("#next-maintenance").datetimePicker({
+        yearSplit:'年',
+        monthSplit:'月',
+        start: new Date(),
+        value:new Date().Format('yyyy年MM月dd')+' 日',
+        times:function(){
+            return [
+                {
+                    values:['日']
+                }
+            ]
+        }
+    }); //日期初始化
+
+    //检测到日期input获取焦点，之外的input要失去焦点 onBlur onFocus
+    $('.date-input').each(function(i,value){
+        $(value).click(function(){
+            $('input').each(function(index,val){
+                $(val).blur();
+            })
+            $(value).focus();
+        })
+    })
+
 
 
     //设置页面判空

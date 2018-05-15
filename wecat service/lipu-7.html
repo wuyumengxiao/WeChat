@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2-轮胎保养通知</title>
+    <title>7-即将保养</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/weui.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -23,15 +23,19 @@
                     <span></span>
                 </p>
                 <p>
+                    <span>车牌号码：</span>
+                    <span></span>
+                </p>
+                <p>
                     <span>车型信息：</span>
                     <span></span>
                 </p>
                 <p>
-                    <span>会员电话：</span>
+                    <span>车架号：</span>
                     <span></span>
                 </p>
                 <p>
-                    <span>车架号：</span>
+                    <span>联系电话：</span>
                     <span></span>
                 </p>
                 <p>
@@ -43,20 +47,26 @@
                     <span></span>
                 </p>
                 <p>
-                    <span>当前行驶里程：</span>
+                    <span>到期时间：</span>
                     <span></span>
                 </p>
                 <p>
-                    <span>当前里程：</span>
-                    <input name=""  type="text" placeholder="请输入当前仪表盘里程">
+                    <span>本次保养里程：</span>
+                    <input name="" class="juge_input" type="text" placeholder="请输入本次保养里程">
+                    <span style="color:red;width:auto;">*</span>
                 </p>
                 <p>
-                    <span>上次年检日期：</span>
+                    <span>下次保养里程：</span>
+                    <input name="" class="juge_input" type="text" placeholder="请输入下次保养里程">
+                    <span style="color:red;width:auto;">*</span>
+                </p>
+                <p>
+                    <span>上次保养日期：</span>
                     <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="last-maintenance"  placeholder="请选择日期">
                     <span style="color:red;width:auto;">*</span>
                 </p>
                 <p>
-                    <span>下次年检日期：</span>
+                    <span>下次保养日期：</span>
                     <input name="" class="weui-input font-input date-input juge_input" type="text" data-toggle='date' id="next-maintenance"  placeholder="请选择日期">
                     <span style="color:red;width:auto;">*</span>
                 </p>
@@ -119,6 +129,7 @@
             $(value).focus();
         })
     })
+
     //设置页面判空
     var juge=true;
     function jugeField(name){
@@ -133,10 +144,8 @@
     $('.save_btn').click(function(){
         var formData = new FormData($('form')[0]);
         $('.juge_input').each(function(index,val){//判空
-            console.log($(val).val())
             jugeField(val);
         })
-        console.log(juge)
         if(juge){
             $.ajax({
                 url: "",
